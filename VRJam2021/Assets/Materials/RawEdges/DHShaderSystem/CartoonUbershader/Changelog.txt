@@ -1,0 +1,7 @@
+1.1
+Block material property drawer added
+Fix anisotropic sliders visualization if specular is disabled
+Bonus dev shader added: Vertex color/alpha preview
+
+1.0
+First release

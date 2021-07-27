@@ -1,0 +1,373 @@
+fileFormatVersion: 2
+guid: 7efff442fddf5e54394a411fcd0cff4b
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Box002
+    100002: Cylinder001
+    100004: Cylinder004
+    100006: //RootNode
+    100008: ChamferBox001
+    100010: ChamferBox002
+    100012: ChamferBox003
+    100014: ChamferBox004
+    100016: ChamferBox005
+    100018: Plane001
+    100020: ChamferBox006
+    100022: ChamferBox007
+    100024: ChamferBox008
+    100026: ChamferCyl001
+    100028: Object001
+    100030: Object002
+    100032: Object003
+    100034: ChamferBox009
+    100036: ChamferBox010
+    100038: ChamferBox011
+    100040: ChamferBox012
+    100042: ChamferBox013
+    100044: ChamferBox015
+    100046: ChamferBox016
+    100048: ChamferBox017
+    100050: ChamferBox018
+    100052: ChamferBox019
+    100054: Object004
+    100056: Object005
+    100058: Object006
+    100060: Object007
+    100062: Object008
+    100064: ChamferCyl002
+    100066: Cylinder005
+    100068: Cylinder006
+    100070: Cylinder007
+    100072: Cylinder008
+    100074: Torus Knot001
+    100076: ChamferBox020
+    100078: ChamferCyl003
+    100080: ChamferCyl004
+    100082: Line001
+    100084: Sphere001
+    400000: Box002
+    400002: Cylinder001
+    400004: Cylinder004
+    400006: //RootNode
+    400008: ChamferBox001
+    400010: ChamferBox002
+    400012: ChamferBox003
+    400014: ChamferBox004
+    400016: ChamferBox005
+    400018: Plane001
+    400020: ChamferBox006
+    400022: ChamferBox007
+    400024: ChamferBox008
+    400026: ChamferCyl001
+    400028: Object001
+    400030: Object002
+    400032: Object003
+    400034: ChamferBox009
+    400036: ChamferBox010
+    400038: ChamferBox011
+    400040: ChamferBox012
+    400042: ChamferBox013
+    400044: ChamferBox015
+    400046: ChamferBox016
+    400048: ChamferBox017
+    400050: ChamferBox018
+    400052: ChamferBox019
+    400054: Object004
+    400056: Object005
+    400058: Object006
+    400060: Object007
+    400062: Object008
+    400064: ChamferCyl002
+    400066: Cylinder005
+    400068: Cylinder006
+    400070: Cylinder007
+    400072: Cylinder008
+    400074: Torus Knot001
+    400076: ChamferBox020
+    400078: ChamferCyl003
+    400080: ChamferCyl004
+    400082: Line001
+    400084: Sphere001
+    2100000: pipe_00_green
+    2100002: pipe_00_border
+    2100004: wall_00
+    2300000: Box002
+    2300002: Cylinder001
+    2300004: Cylinder004
+    2300006: ChamferBox001
+    2300008: ChamferBox002
+    2300010: ChamferBox003
+    2300012: ChamferBox004
+    2300014: ChamferBox005
+    2300016: Plane001
+    2300018: ChamferBox006
+    2300020: ChamferBox007
+    2300022: ChamferBox008
+    2300024: ChamferCyl001
+    2300026: Object002
+    2300028: Object003
+    2300030: ChamferBox009
+    2300032: ChamferBox010
+    2300034: ChamferBox011
+    2300036: ChamferBox012
+    2300038: ChamferBox013
+    2300040: ChamferBox015
+    2300042: ChamferBox016
+    2300044: ChamferBox017
+    2300046: ChamferBox018
+    2300048: ChamferBox019
+    2300050: Object004
+    2300052: Object005
+    2300054: Object006
+    2300056: Object007
+    2300058: Object008
+    2300060: ChamferCyl002
+    2300062: Cylinder005
+    2300064: Cylinder006
+    2300066: Cylinder007
+    2300068: Cylinder008
+    2300070: Torus Knot001
+    2300072: ChamferBox020
+    2300074: ChamferCyl003
+    2300076: ChamferCyl004
+    2300078: Line001
+    2300080: Sphere001
+    3300000: Box002
+    3300002: Cylinder001
+    3300004: Cylinder004
+    3300006: ChamferBox001
+    3300008: ChamferBox002
+    3300010: ChamferBox003
+    3300012: ChamferBox004
+    3300014: ChamferBox005
+    3300016: Plane001
+    3300018: ChamferBox006
+    3300020: ChamferBox007
+    3300022: ChamferBox008
+    3300024: ChamferCyl001
+    3300026: Object002
+    3300028: Object003
+    3300030: ChamferBox009
+    3300032: ChamferBox010
+    3300034: ChamferBox011
+    3300036: ChamferBox012
+    3300038: ChamferBox013
+    3300040: ChamferBox015
+    3300042: ChamferBox016
+    3300044: ChamferBox017
+    3300046: ChamferBox018
+    3300048: ChamferBox019
+    3300050: Object004
+    3300052: Object005
+    3300054: Object006
+    3300056: Object007
+    3300058: Object008
+    3300060: ChamferCyl002
+    3300062: Cylinder005
+    3300064: Cylinder006
+    3300066: Cylinder007
+    3300068: Cylinder008
+    3300070: Torus Knot001
+    3300072: ChamferBox020
+    3300074: ChamferCyl003
+    3300076: ChamferCyl004
+    3300078: Line001
+    3300080: Sphere001
+    4300000: Cylinder001
+    4300002: Cylinder004
+    4300004: Box002
+    4300006: ChamferBox001
+    4300008: ChamferBox002
+    4300010: ChamferBox003
+    4300012: ChamferBox004
+    4300014: ChamferBox005
+    4300016: Plane001
+    4300018: ChamferBox006
+    4300020: ChamferBox007
+    4300022: ChamferBox008
+    4300024: ChamferCyl001
+    4300026: Object002
+    4300028: Object003
+    4300030: ChamferBox009
+    4300032: ChamferBox010
+    4300034: ChamferBox011
+    4300036: Object004
+    4300038: Object005
+    4300040: ChamferBox012
+    4300042: ChamferBox013
+    4300044: Object006
+    4300046: ChamferBox015
+    4300048: ChamferBox016
+    4300050: ChamferBox017
+    4300052: Object007
+    4300054: ChamferBox018
+    4300056: ChamferBox019
+    4300058: Object008
+    4300060: Cylinder005
+    4300062: ChamferCyl002
+    4300064: Cylinder006
+    4300066: Cylinder007
+    4300068: Cylinder008
+    4300070: Torus Knot001
+    4300072: ChamferBox020
+    4300074: ChamferCyl003
+    4300076: ChamferCyl004
+    4300078: Line001
+    4300080: Sphere001
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 6c01de6776e994b4597bc6289b275314, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bricks_00
+    second: {fileID: 2100000, guid: f9f2b5e46bf038d40828742a2b907e08, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floor_00
+    second: {fileID: 2100000, guid: 7bc6229e47ebfe042a3c262fb1b96399, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: grid
+    second: {fileID: 2100000, guid: 4af091a8f25f5684891ce5e6ca5253c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: light_00
+    second: {fileID: 2100000, guid: 15a9ce6b4d9e80145815da41fcbb7e98, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal_00
+    second: {fileID: 2100000, guid: c93e8a47cf0d9f549ac638e55f2ac7c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal_red_00
+    second: {fileID: 2100000, guid: 6361965fae673eb4783cb5b06dfed11e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pipe_00_border
+    second: {fileID: 2100000, guid: 9a9368ba0f788104dac9880afa208def, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pipe_00_green
+    second: {fileID: 2100000, guid: e036332366297c9488a7fd57c49276ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: slime
+    second: {fileID: 2100000, guid: 20ea979e40bbc614db2513cac50d671e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: vc
+    second: {fileID: 2100000, guid: 653a576a539a4a54589649f2f606bbcb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_00
+    second: {fileID: 2100000, guid: 402605683e6df694898c53d8d7ee636e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood_box_00
+    second: {fileID: 2100000, guid: 22fe4f677e54fc54a8ec45dbaf0718c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood_box_01
+    second: {fileID: 2100000, guid: 7fe0ea4aa20cda142849685c6a2e9c41, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
