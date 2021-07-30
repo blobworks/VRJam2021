@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 1b349f10522dcaf498213d6058407ae4
+=======
+<<<<<<<< HEAD:VRJam2021/Assets/Files/3D/DefaultFolder/3ds Max/DefaultFolder_001.max.meta
+guid: b816d63620790724dbf08510d5c506b1
+========
+guid: cb74a4108335e0e4f99297d47d54b2cb
+>>>>>>>> 3ecc76cce72c24e5ca46cb9da482df1b601de704:VRJam2021/Assets/Files/3D/Protoplanet/FBX/Protoplanet_01.FBX.meta
+>>>>>>> 3ecc76cce72c24e5ca46cb9da482df1b601de704
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
