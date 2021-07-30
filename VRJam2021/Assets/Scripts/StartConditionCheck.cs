@@ -23,6 +23,7 @@ public class StartConditionCheck : MonoBehaviour
             rb.isKinematic = false; 
             print("START"); 
             gameManager.gameStarted = true; 
+            gameManager.startTime = Time.time; 
         }
     }
 }

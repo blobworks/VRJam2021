@@ -32,9 +32,8 @@ public class AstronautControls : MonoBehaviour
         if(gameManager.gameStarted && BoostActivated() && ReadyToBoost())
         {
             timeSinceBoosted = Time.time; 
-            amountFuelUsed += Time.deltaTime; 
 
-            gameManager.fuelSpent = amountFuelUsed; 
+            gameManager.fuelSpent += Time.deltaTime; 
             gameManager.DataUpdate(); 
 
             jetPack.Emit(transform.position, Vector3.down + new Vector3(UnityEngine.Random.Range(-0.1f,0.1f), 0f,UnityEngine.Random.Range(-0.1f,0.1f)), 1f, 2f, Color.white);
