@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/VRJam2021-Scene0.unity
+    path: Assets/Scenes/LevelOne.unity
     guid: dd14fde8d3579554d808add046edf9a8
+  - enabled: 1
+    path: Assets/Scenes/LevelTwo.unity
+    guid: 1f5dfda2a6455d947b5c2e603782a057
   m_configObjects: {}
