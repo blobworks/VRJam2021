@@ -11,6 +11,7 @@ public class StartConditionCheck : MonoBehaviour
 
     void Start()
     {
+        GetComponent<MeshRenderer>().enabled = false; 
         gameManager = FindObjectOfType<GameManager>(); 
 
         rb = gameManager.currentAstronaut.GetComponentInChildren<AstronautControls>().rb; 

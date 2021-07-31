@@ -22,11 +22,14 @@ public class AstronautControls : MonoBehaviour
     [SerializeField] bool worldJetPack; 
 
     GameManager gameManager; 
+    bool FXspawned; 
 
     public int enteredTube; 
+    ParticleSystem newJetPack; 
 
     void Start()
     {
+        newJetPack = null; 
         gameManager = FindObjectOfType<GameManager>(); 
 
         gameManager.currentAstronaut = transform.parent.gameObject; 
@@ -41,6 +44,13 @@ public class AstronautControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(newJetPack != null)
+        {
+            newJetPack.transform.position = transform.position; 
+            print("updating pos");
+        }
+        
         if(gameManager.gameStarted && BoostActivated() && ReadyToBoost())
         {
             Vector3 boostDirection; 
@@ -49,6 +59,8 @@ public class AstronautControls : MonoBehaviour
 
             gameManager.fuelSpent += Time.deltaTime; 
             gameManager.DataUpdate(); 
+
+            // rb.transform.up = rb.velocity; 
 
             rb.angularVelocity = Vector3.zero; 
 
@@ -61,21 +73,40 @@ public class AstronautControls : MonoBehaviour
                 boostDirection = transform.up; 
             }
             
+            if(!FXspawned)
+            {
+                newJetPack = Instantiate(jetPack); 
+                newJetPack.transform.up = Vector3.right; 
+                FXspawned = true; 
+                newJetPack.Play(); 
+            }
 
-            jetPack.Emit(transform.position, -boostDirection + new Vector3(UnityEngine.Random.Range(-0.1f,0.1f), 0f,UnityEngine.Random.Range(-0.1f,0.1f)), 0.5f, 2f, Color.white);   
+            // jetPack.Emit(transform.position, -boostDirection + new Vector3(UnityEngine.Random.Range(-0.1f,0.1f), 0f,UnityEngine.Random.Range(-0.1f,0.1f)), 0.5f, 2f, Color.white);   
 
             if(rb.useGravity)
             {
                 rb.AddForce(boostDirection * 0.026f, ForceMode.VelocityChange);   
-            }          
+            }        
 
 
         }   
+        
+        else
+        {
+            if(newJetPack != null && !BoostActivated())
+            {
+                newJetPack.Stop(); 
+                FXspawned = false; 
+            }
+        }
+        
+
 
         // if(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.RTouch) || Input.GetKeyDown(KeyCode.Space)) 
         // {
         //     rb.AddForce(Vector3.up * 2f, ForceMode.Impulse); 
         // }
+
     }
 
     bool BoostActivated()

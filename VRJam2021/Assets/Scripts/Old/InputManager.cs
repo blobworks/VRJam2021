@@ -65,40 +65,43 @@ public class InputManager : MonoBehaviour
         spawnTeleportPoint = Instantiate(teleportPoint); 
         spawnTeleportPoint.SetActive(false); 
         lineRenderer = GetComponent<LineRenderer>(); 
-        controllerMode = ControllerMode.Hands; 
+        // controllerMode = ControllerMode.Hands; 
         previousGesture = new Gesture(); 
-        handRendererLeft = skeletonLeft.GetComponent<SkinnedMeshRenderer>();
-        handRendererRight = skeleton.GetComponent<SkinnedMeshRenderer>(); 
+        if(controllerMode == ControllerMode.Hands)
+        {
+            handRendererLeft = skeletonLeft.GetComponent<SkinnedMeshRenderer>();
+            handRendererRight = skeleton.GetComponent<SkinnedMeshRenderer>(); 
+        }
 
     }
 
     void Update()
     {
-        GetBones(); 
-        HandConfidence();
+        // GetBones(); 
+        // HandConfidence();
         ControllerDetection(); 
 
         ControllerMovement(); 
 
-        if(skeleton.transform.childCount > 0 )
-        {
-            Recognise();
-            RecogniseLeft();
-            HandAction(); 
-        }
+        // if(skeleton.transform.childCount > 0 )
+        // {
+        //     Recognise();
+        //     RecogniseLeft();
+        //     HandAction(); 
+        // }
 
 
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            print("Right Hand Gesture Saved.");
-            Save(); 
-        }
+        // if(Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     print("Right Hand Gesture Saved.");
+        //     Save(); 
+        // }
 
-        if(Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            print("Left Hand Gesture Saved");
-            Save(true); 
-        }
+        // if(Input.GetKeyDown(KeyCode.LeftShift))
+        // {
+        //     print("Left Hand Gesture Saved");
+        //     Save(true); 
+        // }
     
     }
 

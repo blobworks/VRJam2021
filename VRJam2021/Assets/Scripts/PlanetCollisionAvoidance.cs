@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlanetCollisionAvoidance : MonoBehaviour
 {
-    
+    [SerializeField] GameObject[] tileSkins; 
     Vector3 enterPosition; 
     Quaternion enterRotation; 
 
@@ -21,9 +21,26 @@ public class PlanetCollisionAvoidance : MonoBehaviour
 
     void Start()
     {
+        RandomiseTileSet(); 
         if(GetComponent<OVRGrabbable>())
         {
             grabbable = GetComponent<OVRGrabbable>(); 
+        }
+    }
+
+    void RandomiseTileSet()
+    {
+        if(tileSkins.Length > 1)
+        {
+            foreach(GameObject tile in tileSkins)
+            {
+                tile.SetActive(false); 
+            }
+
+            int index = Random.Range(0, tileSkins.Length );
+
+            print("TILE SKIN "+ index); 
+            tileSkins[index].SetActive(true);  
         }
     }
 

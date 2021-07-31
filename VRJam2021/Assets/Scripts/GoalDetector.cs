@@ -5,12 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class GoalDetector : MonoBehaviour
 {
+    [SerializeField] GameObject rocket; 
+    [SerializeField] Transform rocketSeat; 
     [SerializeField] int nextLevelIndex; 
+    [SerializeField] ParticleSystem rocketFX;
     GameManager gameManager; 
 
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<MeshRenderer>().enabled = false; 
         gameManager = FindObjectOfType<GameManager>(); 
     }
 
@@ -21,17 +25,31 @@ public class GoalDetector : MonoBehaviour
         {
             BeginNextLevel(); 
         }
+
+        if(gameManager.gameEnded)
+        {            
+            rocket.transform.Translate(Vector3.up * 0.001f, Space.World);     
+        }
     }
 
     void OnTriggerEnter(Collider other) 
     {
-        BeginNextLevel(); 
+        Rigidbody rb = other.GetComponent<Rigidbody>(); 
+        
+        rb.velocity = Vector3.zero; 
+        rb.useGravity = false; 
+        rb.angularVelocity = Vector3.zero; 
+        other.transform.parent = rocket.transform; 
+        other.transform.position = rocketSeat.position; 
+        other.transform.rotation = rocketSeat.rotation; 
+        BeginNextLevel(other);
     }
 
-    void BeginNextLevel()
+    void BeginNextLevel(Collider other = null)
     {
+        rocketFX.Play(); 
         gameManager.gameEnded = true; 
-        Invoke("NextLevel", 2f); 
+        Invoke("NextLevel", 10f); 
     }    
 
     void NextLevel()

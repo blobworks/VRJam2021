@@ -15,6 +15,7 @@ public class AstroCam : MonoBehaviour
 
     void Start()
     {
+        CamToggle(true); 
         gameManager = FindObjectOfType<GameManager>(); 
     }
 
@@ -24,23 +25,39 @@ public class AstroCam : MonoBehaviour
         {
             if(!camSphereToggled)
             {
-                camera.transform.position = camSphere.position;
-                camera.transform.rotation = camSphere.rotation;
-                camera.transform.parent = camSphere;
-                camSphereToggled = true; 
+                CamToggle(true); 
             }
             else
             {
-                camera.transform.position = povCam.position; 
-                camera.transform.rotation = povCam.rotation; 
-                camera.transform.parent = povCam; 
-                camSphereToggled = false; 
+                CamToggle(false); 
             }
         }
         
         if(camSphereToggled)
         {
             transform.position = rb.transform.position; 
+
+            Vector2 input = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick, OVRInput.Controller.RTouch);
+
+            camSphere.parent.transform.Rotate(new Vector3(0, input.x, 0)); 
+        }
+    }
+
+    void CamToggle(bool overShoulderCam)
+    {
+        if(overShoulderCam)
+        {
+                camera.transform.position = camSphere.position;
+                camera.transform.rotation = camSphere.rotation;
+                camera.transform.parent = camSphere;
+                camSphereToggled = true; 
+        }
+        else
+        {
+                camera.transform.position = povCam.position; 
+                camera.transform.rotation = povCam.rotation; 
+                camera.transform.parent = povCam; 
+                camSphereToggled = false; 
         }
     }
 }
