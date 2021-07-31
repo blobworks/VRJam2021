@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 3
+  currentAstronaut: {fileID: 0}
   fuelSpent: 0
   timeSpent: 0
   score: 0
@@ -53,6 +54,7 @@ MonoBehaviour:
   fuelText: {fileID: 5571656071861141365}
   timeText: {fileID: 1460632889863096247}
   gameConditionText: {fileID: 5571656070062192799}
+  timeKeep: 
   startTime: 0
 --- !u!1 &5571656070062192784
 GameObject:
@@ -404,9 +406,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Blank template for Jam
+  m_text: 'AstroRoll
 
-    v0.2'
+    v0.3'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -475,10 +477,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 5571656071040895897}
-    characterCount: 27
+    characterCount: 14
     spriteCount: 0
-    spaceCount: 4
-    wordCount: 6
+    spaceCount: 1
+    wordCount: 3
     linkCount: 0
     lineCount: 2
     pageCount: 1
