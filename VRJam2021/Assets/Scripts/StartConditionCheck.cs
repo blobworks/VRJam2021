@@ -12,6 +12,8 @@ public class StartConditionCheck : MonoBehaviour
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>(); 
+
+        rb = gameManager.currentAstronaut.GetComponentInChildren<AstronautControls>().rb; 
     }
 
     // Update is called once per frame

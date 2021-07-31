@@ -9,6 +9,9 @@ public class GravityTube : MonoBehaviour
     [SerializeField] Transform enter; 
     [SerializeField] Transform exit; 
 
+    bool centering; 
+    Rigidbody rb; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,23 +19,58 @@ public class GravityTube : MonoBehaviour
         exit.GetComponent<MeshRenderer>().enabled = false; 
     }
 
+    void Update()
+    {
+        if(centering)
+        {
+            if(rb != null)
+            {
+                if(Vector3.Distance(rb.transform.position, enter.transform.position) < 0.01f)
+                {
+                    TravelUpTube(); 
+                }
+            }
+        }
+    }
+    
+
     void OnTriggerEnter(Collider other) 
     {
-            Rigidbody rb; 
             if(other.GetComponent<AstronautControls>())
             {
                 rb = other.GetComponent<Rigidbody>(); 
                 if(type == Type.Entrance)
                 {
-                    rb.velocity = Vector3.zero; 
-                    rb.useGravity = false; 
-                    rb.AddForce(exit.position - enter.position, ForceMode.Impulse); 
+                    CenterToTube(other); 
+
+                    Invoke("GravityReset", 4f); 
                 }
                 else if(type == Type.Exit)
                 {
                     rb.useGravity = true; 
-                    rb.AddForce(exit.position - enter.position, ForceMode.Impulse);
+                    rb.AddForce((exit.position - enter.position) * 0.5f, ForceMode.Impulse);
                 }
             }
+    }
+
+    void CenterToTube(Collider other)
+    {
+        rb.velocity = Vector3.zero; 
+        rb.useGravity = false; 
+        centering = true; 
+        rb.AddForce(enter.position - other.transform.position, ForceMode.Impulse); 
+    }
+
+    void TravelUpTube()
+    {
+        rb.velocity = Vector3.zero; 
+        rb.useGravity = false; 
+        centering = false; 
+        rb.AddForce(exit.position - enter.position, ForceMode.Impulse); 
+    }
+
+    void GravityReset()
+    {
+
     }
 }

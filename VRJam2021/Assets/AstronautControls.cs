@@ -6,8 +6,9 @@ using TMPro;
 
 public class AstronautControls : MonoBehaviour
 {
+    [SerializeField] public Camera astroCam;
     // [SerializeField] TMP_Text fuelUsed; 
-    [SerializeField] Rigidbody rb; 
+    [SerializeField] public Rigidbody rb; 
     [SerializeField] StartConditionCheck start;
     
     [SerializeField] ParticleSystem jetPack; 
@@ -18,11 +19,22 @@ public class AstronautControls : MonoBehaviour
 
     float timeSinceBoosted, amountFuelUsed; 
 
+    [SerializeField] bool worldJetPack; 
+
     GameManager gameManager; 
+
+    public int enteredTube; 
 
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>(); 
+
+        gameManager.currentAstronaut = transform.parent.gameObject; 
+
+        if(start == null)
+        {
+            start = FindObjectOfType<StartConditionCheck>(); 
+        }
         rb = GetComponent<Rigidbody>(); 
     }
 
@@ -31,15 +43,33 @@ public class AstronautControls : MonoBehaviour
     {
         if(gameManager.gameStarted && BoostActivated() && ReadyToBoost())
         {
+            Vector3 boostDirection; 
+
             timeSinceBoosted = Time.time; 
 
             gameManager.fuelSpent += Time.deltaTime; 
             gameManager.DataUpdate(); 
 
-            jetPack.Emit(transform.position, Vector3.down + new Vector3(UnityEngine.Random.Range(-0.1f,0.1f), 0f,UnityEngine.Random.Range(-0.1f,0.1f)), 1f, 2f, Color.white);
+            rb.angularVelocity = Vector3.zero; 
 
-            // fuelUsed.text = "Fuel " + Math.Round(amountFuelUsed, 2); 
-            rb.AddForce(Vector3.up * 0.026f, ForceMode.VelocityChange);             
+            if(worldJetPack)
+            {
+                boostDirection = Vector3.up; 
+            }
+            else 
+            {
+                boostDirection = transform.up; 
+            }
+            
+
+            jetPack.Emit(transform.position, -boostDirection + new Vector3(UnityEngine.Random.Range(-0.1f,0.1f), 0f,UnityEngine.Random.Range(-0.1f,0.1f)), 0.5f, 2f, Color.white);   
+
+            if(rb.useGravity)
+            {
+                rb.AddForce(boostDirection * 0.026f, ForceMode.VelocityChange);   
+            }          
+
+
         }   
 
         // if(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.RTouch) || Input.GetKeyDown(KeyCode.Space)) 

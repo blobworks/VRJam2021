@@ -1,40 +1,90 @@
-﻿using System.Collections;
+﻿    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlanetCollisionAvoidance : MonoBehaviour
 {
+    
     Vector3 enterPosition; 
     Quaternion enterRotation; 
 
-    OVRGrabbable grabbable; 
+    OVRGrabbable grabbable;
+
+    public bool isGrabbable; 
+
+    bool colliding; 
+
+    Vector3 collisionPosition, grabbedPosition; 
+    Quaternion collisionRotation, grabbedRotation; 
+
+    public int currentCollision;  
 
     void Start()
     {
-        grabbable = GetComponent<OVRGrabbable>(); 
+        if(GetComponent<OVRGrabbable>())
+        {
+            grabbable = GetComponent<OVRGrabbable>(); 
+        }
     }
 
     void Update()
     {
+        if(grabbable == null) return; 
+
+        if(grabbable.isGrabbed && grabbedPosition == Vector3.zero)
+        {
+            grabbedPosition = transform.position; 
+            grabbedRotation = transform.rotation; 
+
+            // Invoke("ResetZero", 0.1f); 
+        }
+
+        if(colliding && !grabbable.isGrabbed)
+        {
+            Snap(); 
+        } 
+
+        if(!colliding && !grabbable.isGrabbed && grabbedPosition != Vector3.zero)
+        {
+            ResetZero(); 
+        }
         
     }
 
-    void OnCollisionEnter(Collision other) 
+    public void Collide(bool colliding)
     {
-        if(other.gameObject.GetComponent<PlanetCollisionAvoidance>())
+        if(colliding)
         {
-            enterPosition = transform.position; 
-            enterRotation = transform.rotation; 
-            print("COLLISION DETECTED "+ this.gameObject + other.gameObject); 
-        }    
+            colliding = true; 
+        }
+        else
+        {
+            colliding = false; 
+        }
     }
 
-    void OnCollisionStay(Collision other) 
-    {   
-        if(!grabbable.isGrabbed && enterPosition != Vector3.zero)
+    void ResetZero()
+    {
+        grabbedPosition = Vector3.zero; 
+    }
+
+    public void Check()
+    {
+        if(grabbable == null) return; 
+
+        if(!grabbable.isGrabbed & grabbedPosition != Vector3.zero)
         {
-            transform.position = enterPosition; 
-            transform.rotation = enterRotation; 
+            Snap(); 
         }
+    }
+
+    void Snap()
+    {
+        transform.position = grabbedPosition; 
+        transform.rotation = grabbedRotation; 
+
+        currentCollision = 0;
+
+        grabbedPosition = Vector3.zero; 
     }
 }

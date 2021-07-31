@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] public int lives = 3; 
+    
+    [SerializeField] public GameObject currentAstronaut; 
 
     [SerializeField] public float fuelSpent;
     [SerializeField] public float timeSpent; 
