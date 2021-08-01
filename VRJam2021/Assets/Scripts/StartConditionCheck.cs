@@ -11,6 +11,7 @@ public class StartConditionCheck : MonoBehaviour
     // [SerializeField] public bool started; 
     
     GameManager gameManager;
+    HapticManager hapticManager; 
 
     void Start()
     {
@@ -32,15 +33,14 @@ public class StartConditionCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.RTouch) || Input.GetKeyDown(KeyCode.Return) ) 
+        if(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.LTouch) || Input.GetKeyDown(KeyCode.Return) ) 
         {
             if(ConditionMet())
             {
                 rb.useGravity = true; 
                 rb.isKinematic = false; 
                 print("START"); 
-                gameManager.gameStarted = true; 
-                gameManager.startTime = Time.time;
+                gameManager.StartGame(); 
             } 
             else
             {

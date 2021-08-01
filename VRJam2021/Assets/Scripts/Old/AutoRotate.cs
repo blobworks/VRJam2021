@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class AutoRotate : MonoBehaviour
 {
+    [SerializeField] float multiplier = 1f; 
     void Update()
     {
-        transform.Rotate(Vector3.up, Space.World); 
+        transform.Rotate(Vector3.right * multiplier, Space.Self); 
     }
 }

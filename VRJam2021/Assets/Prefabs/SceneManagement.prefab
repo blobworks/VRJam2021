@@ -168,7 +168,7 @@ MonoBehaviour:
   characterController: {fileID: 0}
   layerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 257
   camera: {fileID: 0}
   trajectorySegments: 35
   trajectorySpeed: 0.25

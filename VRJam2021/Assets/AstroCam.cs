@@ -21,7 +21,7 @@ public class AstroCam : MonoBehaviour
 
     void Update()
     {
-        if(OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick, OVRInput.Controller.RTouch))
+        if(OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick, OVRInput.Controller.LTouch))
         {
             if(!camSphereToggled)
             {
@@ -37,7 +37,7 @@ public class AstroCam : MonoBehaviour
         {
             transform.position = rb.transform.position; 
 
-            Vector2 input = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick, OVRInput.Controller.RTouch);
+            Vector2 input = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick, OVRInput.Controller.LTouch);
 
             camSphere.parent.transform.Rotate(new Vector3(0, input.x, 0)); 
         }

@@ -36,11 +36,15 @@ public class GravityTube : MonoBehaviour
 
     void OnTriggerEnter(Collider other) 
     {
-            if(other.GetComponent<AstronautControls>())
+            // if(other.GetComponent<AstronautControls>())
+            if(true)
             {
-                if(other.GetComponent<AstronautControls>().boatFollow != null)
+                if(other.GetComponent<AstronautControls>())
                 {
-                    other.GetComponent<AstronautControls>().boatFollow.Detach(); 
+                    if(other.GetComponent<AstronautControls>().boatFollow != null)
+                    {
+                        other.GetComponent<AstronautControls>().boatFollow.Detach(); 
+                    }
                 }
                 rb = other.GetComponent<Rigidbody>(); 
                 if(type == Type.Entrance)

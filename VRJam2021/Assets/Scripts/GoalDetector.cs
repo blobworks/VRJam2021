@@ -94,6 +94,11 @@ public class GoalDetector : MonoBehaviour
     {
         Rigidbody rb = other.GetComponent<Rigidbody>(); 
 
+        if(!other.GetComponent<AstronautControls>())
+        {
+            return; 
+        }
+
         shipSummonSequence = true; 
         
         rb.velocity = Vector3.zero; 

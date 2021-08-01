@@ -13,24 +13,32 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public float fuelSpent;
     [SerializeField] public float timeSpent; 
+    [SerializeField] public float totalTime; 
     [SerializeField] public float score; 
+
+    [SerializeField] public float solutionPositionThreshold; 
+    [SerializeField] public float solutionRotationThreshold; 
 
     [SerializeField] public bool gameStarted; 
     [SerializeField] public bool gameEnded; 
 
+    [SerializeField] TMP_Text totalTimeText; 
     [SerializeField] TMP_Text fuelText; 
     [SerializeField] TMP_Text timeText; 
     [SerializeField] TMP_Text gameConditionText;
+
 
     public int[] timeKeep; 
 
     public float startTime;
     float lapsedTime;  
 
+    bool scoreKept; 
+
     void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded; 
-        gameConditionText.text = "HELP! (trigger to start)"; 
+        Reset(); 
     }
 
     void Update()
@@ -44,10 +52,13 @@ public class GameManager : MonoBehaviour
             fuelText.text = "Fuel spent: " +  Math.Round(fuelSpent, 2); 
         }
 
-        if(gameEnded)
+        if(gameEnded && !scoreKept)
         {
             // lapsedTime = lapsedTime; 
+            totalTime += lapsedTime; 
+            totalTimeText.text = "Total Time: " + Math.Round(totalTime, 2); 
             gameConditionText.text = "WE DID IT!"; 
+            scoreKept = true; 
         }
     }
 
@@ -65,5 +76,13 @@ public class GameManager : MonoBehaviour
     {
         gameStarted = false; 
         gameEnded = false; 
+        scoreKept = false; 
+        gameConditionText.text = "HELP! (trigger to start)"; 
+    }
+
+    public void StartGame()
+    {    
+        gameStarted = true;
+        startTime = Time.time;  
     }
 }
