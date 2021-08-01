@@ -1609,6 +1609,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
+--- !u!137 &880479619 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 137977634029103577, guid: 126d619cf4daa52469682f85c1378b4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 880479618}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &880479620 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 137383442603036616, guid: 126d619cf4daa52469682f85c1378b4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 880479618}
+  m_PrefabAsset: {fileID: 0}
+--- !u!143 &880479621 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 880479620, guid: 126d619cf4daa52469682f85c1378b4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 880479618}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &915319456 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3119308079644534864, guid: 8850d132797ff49298ba781e8e1c9bfe,
@@ -1866,7 +1884,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1287990370}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3259,7 +3277,7 @@ PrefabInstance:
         type: 3}
       propertyPath: characterController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 880479621}
     - target: {fileID: 1180679809781623288, guid: 89fcbc5d709e537488de83da58d6360d,
         type: 3}
       propertyPath: camera
@@ -3269,12 +3287,12 @@ PrefabInstance:
         type: 3}
       propertyPath: controllerRendererRight
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 880479620}
     - target: {fileID: 1180679809781623288, guid: 89fcbc5d709e537488de83da58d6360d,
         type: 3}
       propertyPath: controllerRendererLeft
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 880479619}
     - target: {fileID: 1180679809781623288, guid: 89fcbc5d709e537488de83da58d6360d,
         type: 3}
       propertyPath: threshold

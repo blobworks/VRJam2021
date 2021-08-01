@@ -17,6 +17,8 @@ public class AstronautControls : MonoBehaviour
 
     [SerializeField] float maxCount; 
 
+    public BoatFollow boatFollow; 
+
     float timeSinceBoosted, amountFuelUsed; 
 
     [SerializeField] bool worldJetPack; 
@@ -50,7 +52,7 @@ public class AstronautControls : MonoBehaviour
             newJetPack.transform.position = transform.position; 
             print("updating pos");
         }
-        
+
         if(gameManager.gameStarted && BoostActivated() && ReadyToBoost())
         {
             Vector3 boostDirection; 
@@ -88,6 +90,11 @@ public class AstronautControls : MonoBehaviour
                 rb.AddForce(boostDirection * 0.026f, ForceMode.VelocityChange);   
             }        
 
+            if(boatFollow != null)
+            {
+                boatFollow.Detach(); 
+                boatFollow = null;
+            }
 
         }   
         

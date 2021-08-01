@@ -5,28 +5,63 @@ using UnityEngine;
 public class StartConditionCheck : MonoBehaviour
 {
     [SerializeField] Rigidbody rb; 
+    
+    List<MeshRenderer> rendererlist = new List<MeshRenderer>(); 
+
     // [SerializeField] public bool started; 
     
     GameManager gameManager;
 
     void Start()
     {
+        FindErrorSpheres(); 
         GetComponent<MeshRenderer>().enabled = false; 
         gameManager = FindObjectOfType<GameManager>(); 
 
         rb = gameManager.currentAstronaut.GetComponentInChildren<AstronautControls>().rb; 
     }
 
+    void FindErrorSpheres()
+    {
+        foreach(TileCollision tile in FindObjectsOfType<TileCollision>())
+        {
+            rendererlist.Add(tile.errorSphere); 
+        }        
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.RTouch) || Input.GetKeyDown(KeyCode.Return)) 
+        if(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.RTouch) || Input.GetKeyDown(KeyCode.Return) ) 
         {
-            rb.useGravity = true; 
-            rb.isKinematic = false; 
-            print("START"); 
-            gameManager.gameStarted = true; 
-            gameManager.startTime = Time.time; 
+            if(ConditionMet())
+            {
+                rb.useGravity = true; 
+                rb.isKinematic = false; 
+                print("START"); 
+                gameManager.gameStarted = true; 
+                gameManager.startTime = Time.time;
+            } 
+            else
+            {
+                print("CLEAR OBSTRUCTIONS"); 
+            }
         }
+    }
+
+    bool ConditionMet()
+    {
+        foreach(MeshRenderer renderer in rendererlist)
+        {
+            if(renderer.enabled)
+            {
+                return false; 
+            }
+            else 
+            {
+                return true; 
+            }
+        }
+        return false; 
     }
 }

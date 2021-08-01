@@ -5,6 +5,7 @@ using UnityEngine;
 public class TileCollision : MonoBehaviour
 {
     PlanetCollisionAvoidance planetCollision; 
+    [SerializeField] public MeshRenderer errorSphere; 
 
     void Start() 
     {
@@ -18,23 +19,16 @@ public class TileCollision : MonoBehaviour
 
     void OnTriggerStay(Collider other) 
     {
-        planetCollision.Check(); 
-        // if(planetCollision.GetComponent<OVRGrabbable>())
-        // {
-        //     if(planetCollision.GetComponent<OVRGrabbable>().isGrabbed)
-        //     {
-        //         planetCollision.Check(); 
-        //     }
-        // }
+        errorSphere.enabled = true; 
     }
 
     void OnTriggerEnter(Collider other) 
     {
-        planetCollision.Collide(true); 
+        errorSphere.enabled = true; 
     }
 
     void OnTriggerExit(Collider other)
     {
-        planetCollision.Collide(false); 
+        errorSphere.enabled = false; 
     }
 }

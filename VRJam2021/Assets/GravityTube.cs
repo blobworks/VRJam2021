@@ -38,6 +38,10 @@ public class GravityTube : MonoBehaviour
     {
             if(other.GetComponent<AstronautControls>())
             {
+                if(other.GetComponent<AstronautControls>().boatFollow != null)
+                {
+                    other.GetComponent<AstronautControls>().boatFollow.Detach(); 
+                }
                 rb = other.GetComponent<Rigidbody>(); 
                 if(type == Type.Entrance)
                 {
@@ -59,6 +63,7 @@ public class GravityTube : MonoBehaviour
         rb.useGravity = false; 
         centering = true; 
         rb.AddForce(enter.position - other.transform.position, ForceMode.Impulse); 
+        
     }
 
     void TravelUpTube()
