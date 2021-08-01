@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public bool gameStarted; 
     [SerializeField] public bool gameEnded; 
+    [SerializeField] public bool gameOver; 
 
     [SerializeField] TMP_Text totalTimeText; 
     [SerializeField] TMP_Text fuelText; 
@@ -33,7 +34,7 @@ public class GameManager : MonoBehaviour
     public float startTime;
     float lapsedTime;  
 
-    bool scoreKept; 
+    bool scoreKept, loading; 
 
     void Start()
     {
@@ -43,6 +44,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if(loading)
+        {
+            return; 
+        }
+        
         if(gameStarted && !gameEnded)
         {
             gameConditionText.text = "HELP! (trigger to start)"; 
@@ -60,6 +66,11 @@ public class GameManager : MonoBehaviour
             gameConditionText.text = "WE DID IT!"; 
             scoreKept = true; 
         }
+
+        if(gameOver && !loading)
+        {
+            GameOver(); 
+        }
     }
 
     public void DataUpdate()
@@ -72,8 +83,23 @@ public class GameManager : MonoBehaviour
         Reset();
     }
 
+    void GameOver()
+    {
+        gameConditionText.text = "GAME OVER"; 
+        gameOver = false; 
+        Invoke("ReturnToMenu", 5f); 
+        loading = true; 
+    }
+
+    void ReturnToMenu()
+    {
+        SceneManager.LoadScene(0); 
+    }
+
     void Reset()
     {
+        loading = false; 
+        gameOver = false; 
         gameStarted = false; 
         gameEnded = false; 
         scoreKept = false; 

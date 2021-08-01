@@ -123,10 +123,10 @@ public class AstronautControls : MonoBehaviour
             return true; 
         }
 
-        if(Input.GetKey(KeyCode.Space))
-        {
-            return true; 
-        }
+        // if(Input.GetKey(KeyCode.Space))
+        // {
+        //     return true; 
+        // }
         else return false; 
     }
 

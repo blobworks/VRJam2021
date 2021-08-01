@@ -11,7 +11,6 @@ public class StartConditionCheck : MonoBehaviour
     // [SerializeField] public bool started; 
     
     GameManager gameManager;
-    HapticManager hapticManager; 
 
     void Start()
     {
@@ -51,6 +50,8 @@ public class StartConditionCheck : MonoBehaviour
 
     bool ConditionMet()
     {
+        if(gameManager.gameEnded) return false; 
+        
         foreach(MeshRenderer renderer in rendererlist)
         {
             if(renderer.enabled)

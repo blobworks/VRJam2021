@@ -6,6 +6,8 @@ public class PlanetCollisionAvoidance : MonoBehaviour
 {
     [SerializeField] Vector3 solutionPosition;
     [SerializeField] Vector3 solutionRotation; 
+    
+    [SerializeField] ResetAnimation resetAnimation; 
 
     [SerializeField] Transform solution; 
 
@@ -31,6 +33,10 @@ public class PlanetCollisionAvoidance : MonoBehaviour
 
     OVRInput.Controller lastControllerType; 
 
+    public bool animationReset; 
+
+    Animation animation; 
+
     void Start()
     {
         hapticManager = FindObjectOfType<HapticManager>(); 
@@ -40,7 +46,23 @@ public class PlanetCollisionAvoidance : MonoBehaviour
         {
             grabbable = GetComponent<OVRGrabbable>(); 
         }
+
+        DisableAnimationCheck(); 
     }
+
+    void DisableAnimationCheck()
+    {
+        animation = GetComponent<Animation>(); 
+        
+        if(!grabbable.isGrabbable)
+        {
+            if(animation != null)
+            {
+                Destroy(animation); 
+            }
+        }
+    }
+
 
     void RandomiseTileSet()
     {
@@ -66,6 +88,11 @@ public class PlanetCollisionAvoidance : MonoBehaviour
         {
             if(!grabbed)
             {
+                if(animation != null)
+                {
+                    animation.enabled = false; 
+                    animationReset = true; 
+                }
                 grabbed = true; 
                 lastControllerType = grabbable.grabbedBy.controllerType; 
             }
@@ -90,6 +117,11 @@ public class PlanetCollisionAvoidance : MonoBehaviour
                 hapticManager.VibrateStandard(0.5f, 0.5f, 0.1f, lastControllerType); 
             }
             grabbedRelease = false; 
+        }
+
+        if(gameManager.gameStarted && grabbable.isGrabbable)
+        {
+            grabbable.isGrabbable = false; 
         }
     }
 
