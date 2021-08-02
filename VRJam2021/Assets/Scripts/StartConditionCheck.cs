@@ -11,12 +11,18 @@ public class StartConditionCheck : MonoBehaviour
     // [SerializeField] public bool started; 
     
     GameManager gameManager;
+    SoundManager soundManager; 
 
     void Start()
     {
         FindErrorSpheres(); 
         GetComponent<MeshRenderer>().enabled = false; 
         gameManager = FindObjectOfType<GameManager>(); 
+        soundManager = FindObjectOfType<SoundManager>(); 
+
+
+        soundManager.Stop(); 
+        soundManager.Play(soundManager.calmMusic); 
 
         rb = gameManager.currentAstronaut.GetComponentInChildren<AstronautControls>().rb; 
     }
@@ -40,6 +46,8 @@ public class StartConditionCheck : MonoBehaviour
                 rb.isKinematic = false; 
                 print("START"); 
                 gameManager.StartGame(); 
+                soundManager.Stop(); 
+                soundManager.Play(soundManager.goTime); 
             } 
             else
             {

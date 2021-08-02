@@ -29,14 +29,14 @@ public class GoalDetector : MonoBehaviour
     {
         // test 
 
-        if(Input.GetKeyDown(KeyCode.G) || OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
-        {
-            NextLevel(); 
-        }
-        if(OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.RTouch))
-        {
-            ReloadThisLevel(); 
-        }
+        // if(Input.GetKeyDown(KeyCode.G) || OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
+        // {
+        //     NextLevel(); 
+        // }
+        // if(OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.RTouch))
+        // {
+        //     ReloadThisLevel(); 
+        // }
           
 
         if(shipSummonSequence)
@@ -80,6 +80,7 @@ public class GoalDetector : MonoBehaviour
         }
         else if(takeOffSequence)
         { 
+            AudioSource.PlayClipAtPoint(FindObjectOfType<SoundManager>().rocketBoost, transform.position, 0.4f); 
             rocket.transform.Translate(Vector3.up * 0.001f, Space.World);  
         }
     }
@@ -121,7 +122,7 @@ public class GoalDetector : MonoBehaviour
 
     void ReloadThisLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
     }
 
     void NextLevel()

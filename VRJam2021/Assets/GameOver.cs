@@ -5,9 +5,12 @@ using UnityEngine;
 public class GameOver : MonoBehaviour
 {
     GameManager gameManager; 
+    SoundManager soundManager;
+
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>(); 
+        soundManager = FindObjectOfType<SoundManager>(); 
     }
 
     void Update()
@@ -19,7 +22,10 @@ public class GameOver : MonoBehaviour
     {
         if(other.GetComponent<AstronautControls>())
         {
+            soundManager.Stop(); 
+            soundManager.Play(soundManager.gameOver);
             gameManager.gameOver = true; 
+            
         }
     }
 }

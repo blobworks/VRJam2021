@@ -8,7 +8,7 @@ public class AutoScale : MonoBehaviour
     void Start()
     {
         transform.parent = transform.parent.transform.parent; 
-        // transform.localScale *= 10; 
+        transform.localScale *= 10; 
         
     }
 

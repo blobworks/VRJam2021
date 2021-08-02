@@ -26,6 +26,8 @@ public class AstronautControls : MonoBehaviour
     GameManager gameManager; 
     bool FXspawned; 
 
+    SoundManager soundManager; 
+
     public int enteredTube; 
     ParticleSystem newJetPack; 
 
@@ -33,7 +35,7 @@ public class AstronautControls : MonoBehaviour
     {
         newJetPack = null; 
         gameManager = FindObjectOfType<GameManager>(); 
-
+        soundManager = FindObjectOfType<SoundManager>(); 
         gameManager.currentAstronaut = transform.parent.gameObject; 
 
         if(start == null)
@@ -77,6 +79,7 @@ public class AstronautControls : MonoBehaviour
             
             if(!FXspawned)
             {
+                GetComponent<AudioSource>().Play(); 
                 newJetPack = Instantiate(jetPack); 
                 newJetPack.transform.up = Vector3.right; 
                 FXspawned = true; 
@@ -102,6 +105,7 @@ public class AstronautControls : MonoBehaviour
         {
             if(newJetPack != null && !BoostActivated())
             {
+                GetComponent<AudioSource>().Pause(); 
                 newJetPack.Stop(); 
                 FXspawned = false; 
             }
@@ -118,7 +122,7 @@ public class AstronautControls : MonoBehaviour
 
     bool BoostActivated()
     {
-        if(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.RTouch) && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.LTouch))
+        if(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.RTouch) && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.LTouch) || Input.GetKey("space"))
         {
             return true; 
         }
