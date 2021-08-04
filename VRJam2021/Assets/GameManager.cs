@@ -23,21 +23,29 @@ public class GameManager : MonoBehaviour
     [SerializeField] public bool gameEnded; 
     [SerializeField] public bool gameOver; 
 
+
     [SerializeField] TMP_Text totalTimeText; 
     [SerializeField] TMP_Text fuelText; 
     [SerializeField] TMP_Text timeText; 
     [SerializeField] TMP_Text gameConditionText;
 
+    public bool snapOff; 
+    public bool permaDeath; 
 
     public int[] timeKeep; 
 
     public float startTime;
     float lapsedTime;  
 
-    bool scoreKept, loading; 
+    bool scoreKept, loading, checkingStuck; 
+
+    Vector3 astroLastPos; 
+
+    SoundManager soundManager; 
 
     void Start()
     {
+        soundManager = FindObjectOfType<SoundManager>(); 
         SceneManager.sceneLoaded += OnSceneLoaded; 
         Reset(); 
     }
@@ -56,6 +64,15 @@ public class GameManager : MonoBehaviour
             timeText.text = "Time: " + Math.Round(lapsedTime, 2); 
 
             fuelText.text = "Fuel spent: " +  Math.Round(fuelSpent, 2); 
+
+
+            if(!checkingStuck)
+            {
+                astroLastPos = currentAstronaut.transform.localPosition; 
+                print("astro pos 1: " + astroLastPos); 
+                checkingStuck = true; 
+                Invoke("CheckIfStuck", 5f); 
+            }
         }
 
         if(gameEnded && !scoreKept)
@@ -73,9 +90,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void CheckIfStuck()
+    {
+        if(gameStarted && !gameEnded && Vector3.Distance(currentAstronaut.transform.position, astroLastPos) < 0.005f)
+        {
+            print("astro pos dead: " + currentAstronaut.transform.localPosition + " " + astroLastPos); 
+            gameOver = true; 
+        }
+        else
+        {
+            astroLastPos = currentAstronaut.transform.localPosition; 
+            print("astro pos 2: " + astroLastPos); 
+            Invoke("CheckIfStuck", 5f); 
+        }
+    }
+
     public void DataUpdate()
     {
-        // I don't know what this is for
+        
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -85,6 +117,9 @@ public class GameManager : MonoBehaviour
 
     void GameOver()
     {
+        soundManager.Stop(); 
+        soundManager.Play(soundManager.gameOver);
+
         gameConditionText.text = "GAME OVER"; 
         gameOver = false; 
         Invoke("ReturnToMenu", 5f); 
@@ -93,11 +128,19 @@ public class GameManager : MonoBehaviour
 
     void ReturnToMenu()
     {
-        SceneManager.LoadScene(0); 
+        if(permaDeath)
+        {
+            SceneManager.LoadScene(0); 
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
+        }
     }
 
     void Reset()
     {
+        checkingStuck = false; 
         loading = false; 
         gameOver = false; 
         gameStarted = false; 

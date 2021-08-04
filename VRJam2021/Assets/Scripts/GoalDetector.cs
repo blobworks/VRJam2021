@@ -52,7 +52,7 @@ public class GoalDetector : MonoBehaviour
 
             astronaught.transform.localScale = new Vector3(ratio, ratio, ratio); 
 
-            if(Vector3.Distance(astronaught.transform.position, rocketEntrance.position) < 0.01f )
+            if(Vector3.Distance(astronaught.transform.position, rocketEntrance.position) < 0.02f )
             {
                 astronaught.transform.position = rocketSeat.position; 
                 astronaught.GetComponent<Rigidbody>().velocity = Vector3.zero; 

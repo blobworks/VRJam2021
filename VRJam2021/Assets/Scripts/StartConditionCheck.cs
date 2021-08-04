@@ -58,7 +58,7 @@ public class StartConditionCheck : MonoBehaviour
 
     bool ConditionMet()
     {
-        if(gameManager.gameEnded) return false; 
+        if(gameManager.gameEnded || gameManager.gameStarted) return false; 
         
         foreach(MeshRenderer renderer in rendererlist)
         {

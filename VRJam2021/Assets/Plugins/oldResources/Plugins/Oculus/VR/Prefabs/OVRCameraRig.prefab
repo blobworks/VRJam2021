@@ -802,6 +802,7 @@ GameObject:
   - component: {fileID: 8662546738813038145}
   - component: {fileID: 5923472005265834529}
   - component: {fileID: 7117499180253531316}
+  - component: {fileID: 1735996133800452141}
   m_Layer: 23
   m_Name: RockCollider (1)
   m_TagString: Untagged
@@ -883,6 +884,24 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1735996133800452141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2624445440107667683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e1af5f7bf569a349a840678154c849f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  buttonText: {fileID: 0}
+  buttonIdle: {fileID: 0}
+  buttonTouch: {fileID: 0}
+  buttonPressed: {fileID: 0}
+  controller: 2
 --- !u!1 &8380151158608949270
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,6 +914,7 @@ GameObject:
   - component: {fileID: 5837327294912230985}
   - component: {fileID: 4404570806886634010}
   - component: {fileID: 4582689792519870610}
+  - component: {fileID: 6390542472914217441}
   m_Layer: 23
   m_Name: RockCollider
   m_TagString: Untagged
@@ -976,6 +996,24 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6390542472914217441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8380151158608949270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e1af5f7bf569a349a840678154c849f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  buttonText: {fileID: 0}
+  buttonIdle: {fileID: 0}
+  buttonTouch: {fileID: 0}
+  buttonPressed: {fileID: 0}
+  controller: 1
 --- !u!1001 &133000342
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1067,15 +1105,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba1fa4a8c66106b4988c88fe4b8e8502, type: 3}
---- !u!4 &132849602 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 422740, guid: ba1fa4a8c66106b4988c88fe4b8e8502,
-    type: 3}
-  m_PrefabInstance: {fileID: 133000342}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &132879440 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 456902, guid: ba1fa4a8c66106b4988c88fe4b8e8502,
+    type: 3}
+  m_PrefabInstance: {fileID: 133000342}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &132849602 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 422740, guid: ba1fa4a8c66106b4988c88fe4b8e8502,
     type: 3}
   m_PrefabInstance: {fileID: 133000342}
   m_PrefabAsset: {fileID: 0}
@@ -1414,15 +1452,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 437f1ee7fd9d84a45bfc5d3159103328, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 835e735ca71bf78459fb2cababd74112, type: 3}
---- !u!4 &4453511815873537 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4453513310108136, guid: 835e735ca71bf78459fb2cababd74112,
-    type: 3}
-  m_PrefabInstance: {fileID: 1527791081}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1870938006363399 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1870938896605422, guid: 835e735ca71bf78459fb2cababd74112,
+    type: 3}
+  m_PrefabInstance: {fileID: 1527791081}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4453511815873537 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4453513310108136, guid: 835e735ca71bf78459fb2cababd74112,
     type: 3}
   m_PrefabInstance: {fileID: 1527791081}
   m_PrefabAsset: {fileID: 0}

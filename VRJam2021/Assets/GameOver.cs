@@ -22,8 +22,6 @@ public class GameOver : MonoBehaviour
     {
         if(other.GetComponent<AstronautControls>())
         {
-            soundManager.Stop(); 
-            soundManager.Play(soundManager.gameOver);
             gameManager.gameOver = true; 
             
         }

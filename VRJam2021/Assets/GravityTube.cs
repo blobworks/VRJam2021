@@ -12,9 +12,11 @@ public class GravityTube : MonoBehaviour
     bool centering; 
     Rigidbody rb; 
 
+    GameManager gameManager; 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>(); 
         enter.GetComponent<MeshRenderer>().enabled = false; 
         exit.GetComponent<MeshRenderer>().enabled = false; 
     }
@@ -25,8 +27,9 @@ public class GravityTube : MonoBehaviour
         {
             if(rb != null)
             {
-                if(Vector3.Distance(rb.transform.position, enter.transform.position) < 0.01f)
+                if(Vector3.Distance(rb.transform.position, enter.transform.position) < 0.02f)
                 {
+                    rb.transform.position = enter.transform.position; 
                     TravelUpTube(); 
                 }
             }
@@ -50,7 +53,6 @@ public class GravityTube : MonoBehaviour
                 if(type == Type.Entrance)
                 {
                     CenterToTube(other); 
-
                     Invoke("GravityReset", 4f); 
                 }
                 else if(type == Type.Exit)
@@ -80,6 +82,9 @@ public class GravityTube : MonoBehaviour
 
     void GravityReset()
     {
-
+        if(!gameManager.gameEnded)
+        {
+            rb.useGravity = true; 
+        }
     }
 }

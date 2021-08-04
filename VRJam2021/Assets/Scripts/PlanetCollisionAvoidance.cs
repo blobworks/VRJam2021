@@ -12,6 +12,9 @@ public class PlanetCollisionAvoidance : MonoBehaviour
     [SerializeField] Transform solution; 
 
     [SerializeField] GameObject[] tileSkins;
+
+    [SerializeField] bool testSolution; 
+
     Vector3 enterPosition; 
     Quaternion enterRotation; 
 
@@ -84,6 +87,15 @@ public class PlanetCollisionAvoidance : MonoBehaviour
     {
         if(grabbable == null) return;    
 
+        if(testSolution)
+        {
+            animation.enabled = false; 
+            animationReset = true; 
+            transform.position = solutionPosition; 
+            transform.eulerAngles = solutionRotation; 
+            testSolution = false; 
+        }
+
         if(grabbable.isGrabbed)
         {
             if(!grabbed)
@@ -108,7 +120,7 @@ public class PlanetCollisionAvoidance : MonoBehaviour
         if(grabbedRelease)
         {
             // check pos for one frame
-            if(WithinSolutionRange())
+            if(WithinSolutionRange() && !gameManager.snapOff)
             {
                 transform.position = solutionPosition; 
                 transform.eulerAngles = solutionRotation; 
